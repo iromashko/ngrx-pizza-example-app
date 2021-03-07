@@ -16,8 +16,13 @@
             "polyfills": "apps/pizza/src/polyfills.ts",
             "tsConfig": "apps/pizza/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/pizza/src/favicon.ico", "apps/pizza/src/assets"],
-            "styles": ["apps/pizza/src/styles.scss"],
+            "assets": [
+              "apps/pizza/src/favicon.ico",
+              "apps/pizza/src/assets"
+            ],
+            "styles": [
+              "apps/pizza/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -78,7 +83,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/pizza"],
+          "outputs": [
+            "coverage/apps/pizza"
+          ],
           "options": {
             "jestConfig": "apps/pizza/jest.config.js",
             "passWithNoTests": true
@@ -107,14 +114,17 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/pizza-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/pizza-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
     }
   },
   "cli": {
-    "defaultCollection": "@nrwl/angular"
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
   },
   "schematics": {
     "@nrwl/angular": {

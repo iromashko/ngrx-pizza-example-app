@@ -1,13 +1,21 @@
-import { getGreeting } from '../support/app.po';
-
 describe('pizza', () => {
-  beforeEach(() => cy.visit('/'));
+  beforeEach(() => {
+    cy.visit('/');
+  });
+  it('should display home page', () => {
+    cy.get('[data-cy=pizza__price]').contains('Price: $ 12');
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+    cy.get('[data-cy=add_pepperoni]')
+      .contains('Add Pepperonni')
+      .click()
+      .contains('Remove Pepperonni');
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome to pizza!');
+    cy.get('[data-cy=pizza__price]').contains('Price: $ 15');
+    cy.get('[data-cy=add_sausage]').click();
+    cy.get('[data-cy=pizza__price]').contains('Price: $ 17.5');
+    cy.get('[data-cy=add_pepperoni]').click();
+    cy.get('[data-cy=pizza__price]').contains('Price: $ 14.5');
+    cy.get('[data-cy=add_sausage]').click();
+    cy.get('[data-cy=pizza__price]').contains('Price: $ 12');
   });
 });
